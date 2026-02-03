@@ -1,0 +1,132 @@
+import React from 'react';
+import { ChevronDown, CircuitBoard, ArrowRight } from 'lucide-react';
+import { HERO_CONTENT } from '../constants';
+
+const Hero: React.FC = () => {
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 pt-24 lg:pt-0">
+      {/* Custom Animations Styles */}
+      <style>{`
+        @keyframes noise {
+          0%, 100% { transform: translate(0, 0); }
+          10% { transform: translate(-5%, -5%); }
+          20% { transform: translate(-10%, 5%); }
+          30% { transform: translate(5%, -10%); }
+          40% { transform: translate(-5%, 15%); }
+          50% { transform: translate(-10%, 5%); }
+          60% { transform: translate(15%, 0); }
+          70% { transform: translate(0, 10%); }
+          80% { transform: translate(-15%, 0); }
+          90% { transform: translate(10%, 5%); }
+        }
+        @keyframes blob {
+          0% { transform: translate(0px, 0px) scale(1); }
+          33% { transform: translate(30px, -50px) scale(1.1); }
+          66% { transform: translate(-20px, 20px) scale(0.9); }
+          100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animate-noise {
+          animation: noise 8s steps(10) infinite;
+        }
+        .animate-blob {
+          animation: blob 7s infinite;
+        }
+        .animation-delay-2000 {
+          animation-delay: 2s;
+        }
+        .animation-delay-4000 {
+          animation-delay: 4s;
+        }
+      `}</style>
+
+      {/* Background Ambience */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900/20 via-slate-950 to-slate-950 pointer-events-none" />
+      
+      {/* Animated Noise Overlay - Scaled up to allow movement without showing edges */}
+      <div className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none animate-noise mix-blend-overlay"></div>
+      
+      {/* Animated Glows - Organic floating movement */}
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[100px] animate-blob mix-blend-screen" />
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-violet-500/10 rounded-full blur-[100px] animate-blob animation-delay-2000 mix-blend-screen" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-indigo-500/5 rounded-full blur-[120px] animate-blob animation-delay-4000 pointer-events-none" />
+
+      <div className="container max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-8 items-center relative z-10">
+        
+        {/* Text Content */}
+        <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-8">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/5 backdrop-blur-sm">
+                <CircuitBoard className="w-4 h-4 text-cyan-400" />
+                <span className="text-xs font-medium text-cyan-300 tracking-wide uppercase">System Online</span>
+            </div>
+
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]">
+              Architecting <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-400 glow-text">Intelligent Systems</span>
+            </h1>
+            
+            <p className="text-lg sm:text-xl text-slate-400 max-w-2xl font-light leading-relaxed">
+              {HERO_CONTENT.subHeadline}
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+              <button className="group relative px-8 py-4 bg-white text-slate-950 font-semibold text-lg rounded-full transition-all hover:bg-cyan-50 hover:shadow-[0_0_30px_rgba(34,211,238,0.3)] hover:-translate-y-1 flex items-center justify-center gap-2">
+                {HERO_CONTENT.cta}
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+              <button className="px-8 py-4 border border-white/10 bg-white/5 text-white font-semibold text-lg rounded-full transition-all hover:bg-white/10 hover:border-white/20 flex items-center justify-center">
+                View Projects
+              </button>
+            </div>
+        </div>
+
+        {/* Hero Image */}
+        <div className="relative w-full max-w-md mx-auto lg:max-w-full lg:ml-auto perspective-1000">
+            <div className="relative group">
+                {/* Back glow - Matched to Blue Sky in Photo */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-[2rem] blur-2xl opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+                
+                {/* Main Card */}
+                <div className="relative rounded-[2rem] overflow-hidden border border-white/10 bg-slate-900/80 backdrop-blur-sm">
+                    {/* User Image - Pointing to local file 'profile.png' */}
+                    <img 
+                      src="/profile.png" 
+                      alt="AI Engineer Profile" 
+                      className="w-full aspect-[4/5] object-cover object-center transform transition-transform duration-700 group-hover:scale-105" 
+                    />
+                    
+                    {/* Overlay Gradient - darker at bottom for text readability */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/20 to-transparent opacity-60"></div>
+
+                    {/* Floating Stats */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6 space-y-3">
+                        <div className="flex items-center gap-3">
+                             <div className="h-2 w-24 bg-slate-700 rounded-full overflow-hidden">
+                                <div className="h-full w-[85%] bg-cyan-400 rounded-full animate-pulse"></div>
+                             </div>
+                             <span className="text-xs text-cyan-400 font-mono">MODEL_TRAINING_85%</span>
+                        </div>
+                        <div className="flex items-center justify-between glass-panel p-3 rounded-xl border-white/10 bg-slate-900/60 backdrop-blur-md">
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400">
+                                    <CircuitBoard className="w-5 h-5" />
+                                </div>
+                                <div>
+                                    <div className="text-xs text-slate-400">Current Focus</div>
+                                    <div className="text-sm font-bold text-white">Gemini 1.5 Pro Agent</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      </div>
+
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-slate-600 hidden lg:block">
+        <ChevronDown className="w-6 h-6" />
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
