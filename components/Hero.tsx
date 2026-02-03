@@ -93,10 +93,10 @@ const Hero: React.FC = () => {
                 
                 {/* Main Card */}
                 <div className="relative rounded-[2rem] overflow-hidden border border-white/10 bg-slate-900/80 backdrop-blur-sm">
-                    {/* User Image - Pointing to local file 'profile.png' */}
+                    {/* User Image - Updated to a high-quality professional portrait */}
                     <img 
-                      src="/profile.png" 
-                      alt="AI Engineer Profile" 
+                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop" 
+                      alt="Alex Mercer - AI Engineer" 
                       className="w-full aspect-[4/5] object-cover object-center transform transition-transform duration-700 group-hover:scale-105" 
                     />
                     
