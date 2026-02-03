@@ -9,27 +9,34 @@ const Hero: React.FC = () => {
       <style>{`
         @keyframes noise {
           0%, 100% { transform: translate(0, 0); }
-          10% { transform: translate(-5%, -5%); }
-          20% { transform: translate(-10%, 5%); }
-          30% { transform: translate(5%, -10%); }
-          40% { transform: translate(-5%, 15%); }
-          50% { transform: translate(-10%, 5%); }
-          60% { transform: translate(15%, 0); }
-          70% { transform: translate(0, 10%); }
-          80% { transform: translate(-15%, 0); }
-          90% { transform: translate(10%, 5%); }
+          10% { transform: translate(-1%, -1%); }
+          20% { transform: translate(-2%, 1%); }
+          30% { transform: translate(1%, -2%); }
+          40% { transform: translate(-1%, 2%); }
+          50% { transform: translate(-2%, 1%); }
+          60% { transform: translate(2%, 0); }
+          70% { transform: translate(0, 2%); }
+          80% { transform: translate(-2%, 0); }
+          90% { transform: translate(1%, 1%); }
         }
         @keyframes blob {
           0% { transform: translate(0px, 0px) scale(1); }
-          33% { transform: translate(30px, -50px) scale(1.1); }
-          66% { transform: translate(-20px, 20px) scale(0.9); }
+          33% { transform: translate(20px, -30px) scale(1.05); }
+          66% { transform: translate(-15px, 15px) scale(0.95); }
           100% { transform: translate(0px, 0px) scale(1); }
         }
+        @keyframes breathe {
+          0%, 100% { opacity: 0.6; transform: scale(1); }
+          50% { opacity: 1; transform: scale(1.02); }
+        }
         .animate-noise {
-          animation: noise 8s steps(10) infinite;
+          animation: noise 4s steps(8) infinite;
         }
         .animate-blob {
-          animation: blob 7s infinite;
+          animation: blob 12s ease-in-out infinite;
+        }
+        .animate-breathe {
+          animation: breathe 15s ease-in-out infinite;
         }
         .animation-delay-2000 {
           animation-delay: 2s;
@@ -39,16 +46,16 @@ const Hero: React.FC = () => {
         }
       `}</style>
 
-      {/* Background Ambience */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900/20 via-slate-950 to-slate-950 pointer-events-none" />
+      {/* Main Radial Background with Breathing Animation */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900/30 via-slate-950 to-slate-950 pointer-events-none animate-breathe" />
       
-      {/* Animated Noise Overlay - Scaled up to allow movement without showing edges */}
-      <div className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none animate-noise mix-blend-overlay"></div>
+      {/* Animated Noise Overlay - Extremely subtle digital grain */}
+      <div className="absolute top-[-20%] left-[-20%] w-[140%] h-[140%] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.07] pointer-events-none animate-noise mix-blend-overlay"></div>
       
-      {/* Animated Glows - Organic floating movement */}
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[100px] animate-blob mix-blend-screen" />
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-violet-500/10 rounded-full blur-[100px] animate-blob animation-delay-2000 mix-blend-screen" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-indigo-500/5 rounded-full blur-[120px] animate-blob animation-delay-4000 pointer-events-none" />
+      {/* Organic Floating Glows - Very slow and fluid */}
+      <div className="absolute top-0 left-[-10%] w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[120px] animate-blob mix-blend-screen pointer-events-none" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-violet-500/10 rounded-full blur-[120px] animate-blob animation-delay-4000 mix-blend-screen pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-indigo-500/5 rounded-full blur-[150px] animate-blob animation-delay-2000 pointer-events-none" />
 
       <div className="container max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-8 items-center relative z-10">
         
