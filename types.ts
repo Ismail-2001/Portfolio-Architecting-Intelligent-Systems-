@@ -4,6 +4,7 @@ export interface Project {
   solution: string;
   stack: string[];
   impact: string;
+  imageUrl: string;
 }
 
 export interface Experience {

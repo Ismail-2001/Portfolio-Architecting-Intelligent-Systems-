@@ -24,21 +24,24 @@ export const PROJECTS_CONTENT: Project[] = [
     problem: "Financial analysts required hours to synthesize real-time market data from fragmented unstructured sources.",
     solution: "Developed an autonomous multi-agent system using the Gemini API to ingest, analyze, and cross-reference live financial news streams.",
     stack: ["Gemini 1.5 Pro", "Python", "FastAPI", "Vector DB"],
-    impact: "Reduced analysis time by 85% and increased prediction accuracy for emerging market trends by 22%."
+    impact: "Reduced analysis time by 85% and increased prediction accuracy for emerging market trends by 22%.",
+    imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop"
   },
   {
     title: "NeuroDoc",
     problem: "Legal teams struggled with retrieval accuracy across millions of case files due to poor semantic understanding.",
     solution: "Engineered a hybrid retrieval-augmented generation (RAG) system utilizing advanced embeddings and semantic reranking.",
     stack: ["LLMs", "LangChain", "Pinecone", "React"],
-    impact: "Improved retrieval precision to 94% and cut document review costs by $150k annually."
+    impact: "Improved retrieval precision to 94% and cut document review costs by $150k annually.",
+    imageUrl: "https://images.unsplash.com/photo-1504868584819-f8e905263543?q=80&w=1200&auto=format&fit=crop"
   },
   {
     title: "VisionCore",
     problem: "Manufacturing quality control faced high latency and error rates in defect detection on assembly lines.",
     solution: "Deployed a fine-tuned vision-language model at the edge to identify microscopic defects in real-time.",
     stack: ["Computer Vision", "TensorFlow", "Edge AI", "Python"],
-    impact: "Achieved 99.8% defect detection rate with sub-50ms inference latency."
+    impact: "Achieved 99.8% defect detection rate with sub-50ms inference latency.",
+    imageUrl: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop"
   }
 ];
 
